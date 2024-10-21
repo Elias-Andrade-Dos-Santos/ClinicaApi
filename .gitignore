@@ -1,0 +1,86 @@
+# Arquivos do Visual Studio
+.vs/
+.vscode/
+obj/
+bin/
+Debug/
+Release/
+
+# Arquivos de configuração do Visual Studio
+.vsconfig
+.vssscc
+.vsi
+.vspscc
+
+# Arquivos de build e publicação
+*.csproj.user
+*.sln.docstates
+*.suo
+*.userosscache
+*.sln
+
+# Arquivos de cache e temporários
+*.cache
+*.tmp
+*.temp
+
+# Arquivos de log
+*.log
+App_Data/
+
+# Arquivos de dados do Entity Framework
+Migrations/
+obj/Debug/
+obj/Release/
+
+# Arquivos de dados do SQLite
+*.db
+*.sqlite
+
+# Outros arquivos ignorados
+*.bak
+*.backup
+*.mdf
+*.ldf
+Thumbs.db
+ehthumbs.db
+
+
+Além disso, você também pode incluir os seguintes diretórios e arquivos específicos do (link unavailable) Core:
+
+
+# Diretórios do (link unavailable) Core
+wwwroot/
+
+# Arquivos de configuração do (link unavailable) Core
+appsettings.json
+appsettings.Development.json
+appsettings.Production.json
+
+# Arquivos de segurança
+secrets.json
+
+# Arquivos de migração do Entity Framework Core
+Migrations/
+
+# Arquivos de dados do Identity
+Identity/
+
+
+Lembre-se de que você pode personalizar esse arquivo .gitignore de acordo com as necessidades específicas do seu projeto.
+
+Geralmente, é recomendável ignorar:
+
+- Arquivos de build e compilação
+- Arquivos de configuração do Visual Studio
+- Arquivos de cache e temporários
+- Arquivos de log
+- Arquivos de dados do Entity Framework
+- Arquivos de dados do SQLite
+- Outros arquivos que não sejam essenciais para o funcionamento do projeto
+
+E incluir:
+
+- Código-fonte do projeto
+- Arquivos de configuração do (link unavailable) Core
+- Arquivos de migração do Entity Framework Core
