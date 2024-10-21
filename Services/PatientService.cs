@@ -1,4 +1,5 @@
 using AutoMapper;
+using ClinicaApi.DTOs.AddressDTOs;
 using ClinicaApi.DTOs.PatientDTOs;
 using ClinicaApi.Models;
 using ClinicaApi.Repositories.Interfaces;
@@ -52,6 +53,11 @@ namespace ClinicaApi.Services
             }
         }
 
+        public async Task DeletePatientAsync(int id)
+        {
+            throw new NotImplementedException();
+        }
+
         public async Task<IEnumerable<PatientDTO>> GetAllPatientsAsync(string name = null, string cpf = null, bool? isActive = null)
         {
             var patients = await _patientRepository.GetAllAsync();
@@ -70,6 +76,24 @@ namespace ClinicaApi.Services
             }
 
             return patients.Select(a => _mapper.Map<PatientDTO>(a));
+        }
+
+        public async Task<PatientDTO> GetPatientByIdAsync(int id)
+        {
+            var patient = await _patientRepository.GetByIdAsync(id);
+            if (patient == null)
+                throw new NotFoundException("Paciente não encontrado");
+
+            return new PatientDTO
+            {
+                Name = patient.Name,
+                DateOfBirth = patient.DateOfBirth,
+                CPF = patient.CPF,
+                Gender = patient.Gender,
+                Address = _mapper.Map<AddressDTO>(patient.Address),
+                IsActive = patient.IsActive
+            };
+
         }
 
         public async Task UpdatePatientAsync(int id, PatientUpdateDTO patientUpdate)
