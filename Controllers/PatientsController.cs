@@ -88,5 +88,19 @@ namespace ClinicaApi.Controllers
                 return NotFound(ex.Message);
             }
         }
+
+        [HttpPatch("{id}/inactivate")]
+        public async Task<ActionResult> InactivatePatient(int id)
+        {
+            try
+            {
+                await _patientService.InactivatePatientAsync(id);
+                return NoContent();
+            }
+            catch (NotFoundException ex)
+            {
+                return NotFound(ex.Message);
+            }
+        }
     }
 }
