@@ -74,5 +74,19 @@ namespace ClinicaApi.Controllers
                 return BadRequest(new { Errors = errors });
             }
         }
+
+        [HttpDelete("{id}")]
+        public async Task<ActionResult> DeletePatient(int id)
+        {
+            try
+            {
+                await _patientService.DeletePatientAsync(id);
+                return NoContent();
+            }
+            catch (NotFoundException ex)
+            {
+                return NotFound(ex.Message);
+            }
+        }
     }
 }
