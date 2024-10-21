@@ -3,6 +3,7 @@ using ClinicaApi.DTOs.PatientDTOs;
 using ClinicaApi.Models;
 using ClinicaApi.Repositories.Interfaces;
 using ClinicaApi.Services.Interfaces;
+using ClinicaAPI.Exceptions;
 using FluentValidation;
 
 namespace ClinicaApi.Services
@@ -11,13 +12,15 @@ namespace ClinicaApi.Services
     {
         private readonly IPatientRepository _patientRepository;
         private readonly IValidator<PatientPostDTO> _validatorPost;
+         private readonly IValidator<PatientUpdateDTO> _validatorUpdate;
         private readonly IAddressRepository _addressRepository;
         private readonly IMapper _mapper;
-        public PatientService(IPatientRepository patientRepository,IAddressRepository addressRepository,IValidator<PatientPostDTO> validatorPost,IMapper mapper)
+        public PatientService(IPatientRepository patientRepository,IAddressRepository addressRepository,IValidator<PatientPostDTO> validatorPost,IValidator<PatientUpdateDTO> validatorUpdate,IMapper mapper)
         {
             _patientRepository = patientRepository;
             _addressRepository = addressRepository; 
             _validatorPost = validatorPost;
+            _validatorUpdate = validatorUpdate;
             _mapper = mapper;  
         }
         public async Task AddPatientAsync(PatientPostDTO patientPostDto)
@@ -67,6 +70,27 @@ namespace ClinicaApi.Services
             }
 
             return patients.Select(a => _mapper.Map<PatientDTO>(a));
+        }
+
+        public async Task UpdatePatientAsync(int id, PatientUpdateDTO patientUpdate)
+        {
+            var patient = await _patientRepository.GetByIdAsync(id);
+            if (patient == null)
+            throw new NotFoundException("Paciente não encontrado");
+
+            var validationResult = await _validatorUpdate.ValidateAsync(patientUpdate);
+            if (!validationResult.IsValid)
+            {
+                throw new ValidationException(validationResult.Errors);
+            }
+
+            patient.Name = patientUpdate.Name;
+            patient.DateOfBirth = patientUpdate.DateOfBirth;
+            patient.CPF = patientUpdate.CPF;
+            patient.Gender = patientUpdate.Gender;
+            patient.Address = _mapper.Map<Address>(patientUpdate.Address);
+
+            await _patientRepository.UpdateAsync(patient);
         }
     }
 }
