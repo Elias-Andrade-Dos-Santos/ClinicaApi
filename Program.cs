@@ -4,6 +4,7 @@ using ClinicaApi.Repositories;
 using ClinicaApi.Repositories.Interfaces;
 using ClinicaApi.Services;
 using ClinicaApi.Services.Interfaces;
+using ClinicaAPI.DTOs.validator.PatientValidatorDTO;
 using FluentValidation;
 using Microsoft.EntityFrameworkCore;
 
@@ -22,6 +23,7 @@ builder.Services.AddScoped<IPatientRepository, PatientRepository>();
 builder.Services.AddScoped<IAddressRepository, AddressRepository>();
 
 builder.Services.AddScoped<IValidator<PatientPostDTO>, PatientPostDTOValidator>();
+builder.Services.AddScoped<IValidator<PatientUpdateDTO>, PatientUpdateDTOValidator>();
 
 builder.Services.AddDbContext<ClinicaApi.Data.ClinicaContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
