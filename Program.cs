@@ -1,9 +1,31 @@
+using ClinicaApi.DTOs.PatientDTOs;
+using ClinicaApi.DTOs.validator.PatientValidatorDTO;
+using ClinicaApi.Repositories;
+using ClinicaApi.Repositories.Interfaces;
+using ClinicaApi.Services;
+using ClinicaApi.Services.Interfaces;
+using FluentValidation;
+using Microsoft.EntityFrameworkCore;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
+// Registrar dependências
+builder.Services.AddScoped<IPatientService, PatientService>();
+
+builder.Services.AddScoped<IPatientRepository, PatientRepository>();
+builder.Services.AddScoped<IAddressRepository, IAddressRepository>();
+
+builder.Services.AddScoped<IValidator<PatientPostDTO>, PatientPostDTOValidator>();
+
+builder.Services.AddDbContext<ClinicaApi.Data.ClinicaContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+
+builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
 var app = builder.Build();
 
