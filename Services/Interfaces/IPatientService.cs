@@ -10,5 +10,6 @@ namespace ClinicaApi.Services.Interfaces
         Task<PatientDTO> GetPatientByIdAsync(int id);
         Task UpdatePatientAsync(int id, PatientUpdateDTO patientUpdate);
         Task DeletePatientAsync(int id);
+        Task InactivatePatientAsync(int id);
     }
 }
