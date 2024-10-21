@@ -100,6 +100,17 @@ namespace ClinicaApi.Services
 
         }
 
+        public async Task InactivatePatientAsync(int id)
+        {
+            var patient = await _patientRepository.GetByIdAsync(id);
+            
+            if (patient == null)
+                throw new NotFoundException("Paciente não encontrado");
+            patient.IsActive = false; 
+
+            await _patientRepository.UpdateAsync(patient);
+        }
+
         public async Task UpdatePatientAsync(int id, PatientUpdateDTO patientUpdate)
         {
             var patient = await _patientRepository.GetByIdAsync(id);
