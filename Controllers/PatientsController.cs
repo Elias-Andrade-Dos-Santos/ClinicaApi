@@ -17,6 +17,13 @@ namespace ClinicaApi.Controllers
         {
             _patientService = patientService;
         }
+
+        [HttpGet]
+        public async Task<ActionResult<IEnumerable<PatientDTO>>> GetAllPatients([FromQuery] string name = null, [FromQuery] string cpf = null, [FromQuery] bool? isActive = null)
+        {
+            var patients = await _patientService.GetAllPatientsAsync(name, cpf, isActive);
+            return Ok(patients);
+        }
         [HttpPost]
         public async Task<ActionResult> AddPatient([FromBody] PatientPostDTO patientPostDto)
         {
