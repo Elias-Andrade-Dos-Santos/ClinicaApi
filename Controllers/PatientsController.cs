@@ -25,6 +25,21 @@ namespace ClinicaApi.Controllers
             var patients = await _patientService.GetAllPatientsAsync(name, cpf, isActive);
             return Ok(patients);
         }
+
+        [HttpGet("{id}")]
+        public async Task<ActionResult<PatientDTO>> GetPatientById(int id)
+        {
+            try
+            {
+                var patient = await _patientService.GetPatientByIdAsync(id);
+                return Ok(patient);
+            }
+            catch (NotFoundException ex)
+            {
+                return NotFound(ex.Message);
+            }
+        }
+
         [HttpPost]
         public async Task<ActionResult> AddPatient([FromBody] PatientPostDTO patientPostDto)
         {
