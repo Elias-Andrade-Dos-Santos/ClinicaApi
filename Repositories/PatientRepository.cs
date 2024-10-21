@@ -26,9 +26,9 @@ namespace ClinicaApi.Repositories
             throw new NotImplementedException();
         }
 
-        public Task<bool> ExistsByCPFAsync(string cpf)
+        public async Task<bool> ExistsByCPFAsync(string cpf)
         {
-            throw new NotImplementedException();
+           return await _context.Patients.AnyAsync(p => p.CPF == cpf);
         }
 
         public async Task<IEnumerable<Patient>> GetAllAsync()
@@ -36,9 +36,9 @@ namespace ClinicaApi.Repositories
             return await _context.Patients.Include(p => p.Address).ToListAsync();
         }
 
-        public Task<Patient> GetByIdAsync(int id)
+        public async Task<Patient> GetByIdAsync(int id)
         {
-            throw new NotImplementedException();
+            return await _context.Patients.Include(p => p.Address).FirstOrDefaultAsync(p => p.Id == id);
         }
 
         public async Task UpdateAsync(Patient patient)
