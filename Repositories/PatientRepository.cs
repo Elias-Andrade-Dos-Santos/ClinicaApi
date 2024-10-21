@@ -41,9 +41,10 @@ namespace ClinicaApi.Repositories
             throw new NotImplementedException();
         }
 
-        public Task UpdateAsync(Patient patient)
+        public async Task UpdateAsync(Patient patient)
         {
-            throw new NotImplementedException();
+            _context.Patients.Update(patient);
+            await _context.SaveChangesAsync();
         }
     }
 }
