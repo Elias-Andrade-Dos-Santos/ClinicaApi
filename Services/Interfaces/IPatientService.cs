@@ -1,4 +1,5 @@
 using ClinicaApi.DTOs.PatientDTOs;
+using ClinicaApi.Models;
 
 namespace ClinicaApi.Services.Interfaces
 {
@@ -6,5 +7,6 @@ namespace ClinicaApi.Services.Interfaces
     {
         Task AddPatientAsync(PatientPostDTO patientPostDto);
         Task<IEnumerable<PatientDTO>> GetAllPatientsAsync(string name = null, string cpf = null, bool? isActive = null);
+        Task UpdatePatientAsync(int id, PatientUpdateDTO patientUpdate);
     }
 }
