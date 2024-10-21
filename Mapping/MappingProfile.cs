@@ -13,9 +13,12 @@ namespace ClinicaApi.Mapping
     {
         public MappingProfile()
         {
-            CreateMap<PatientPostDTO, Patient>();
             CreateMap<Patient, PatientDTO>().ReverseMap();
+
             CreateMap<Address, AddressDTO>().ReverseMap();
+
+            CreateMap<PatientPostDTO, Patient>();
+
         }
     }
 }
