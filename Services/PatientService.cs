@@ -55,7 +55,11 @@ namespace ClinicaApi.Services
 
         public async Task DeletePatientAsync(int id)
         {
-            throw new NotImplementedException();
+            var patient = await _patientRepository.GetByIdAsync(id);
+            if (patient == null)
+                throw new NotFoundException("Paciente não encontrado");
+                
+            await _patientRepository.DeleteAsync(id);
         }
 
         public async Task<IEnumerable<PatientDTO>> GetAllPatientsAsync(string name = null, string cpf = null, bool? isActive = null)
