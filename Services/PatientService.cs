@@ -48,5 +48,25 @@ namespace ClinicaApi.Services
                 await _addressRepository.AddAsync(address);
             }
         }
+
+        public async Task<IEnumerable<PatientDTO>> GetAllPatientsAsync(string name = null, string cpf = null, bool? isActive = null)
+        {
+            var patients = await _patientRepository.GetAllAsync();
+            
+            if (!string.IsNullOrEmpty(name))
+            {
+                patients = patients.Where(p => p.Name.Contains(name, StringComparison.OrdinalIgnoreCase));
+            }
+            if (!string.IsNullOrEmpty(cpf))
+            {
+                 patients = patients.Where(p => p.CPF == cpf);
+            }
+            if (isActive.HasValue)
+            {
+                patients = patients.Where(p => p.IsActive == isActive.Value);
+            }
+
+            return patients.Select(a => _mapper.Map<PatientDTO>(a));
+        }
     }
 }
