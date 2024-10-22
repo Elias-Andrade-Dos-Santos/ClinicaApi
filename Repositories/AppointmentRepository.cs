@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using ClinicaApi.Data;
 using ClinicaApi.Models;
 using ClinicaApi.Repositories.Interfaces;
+using Microsoft.EntityFrameworkCore;
 
 namespace ClinicaApi.Repositories
 {
@@ -28,9 +29,11 @@ namespace ClinicaApi.Repositories
             throw new NotImplementedException();
         }
 
-        public Task<List<Appointment>> GetAllAsync()
+        public async Task<IEnumerable<Appointment>> GetAllAsync()
         {
-            throw new NotImplementedException();
+            return await _context.Appointments
+                                 .Include(a => a.Patient)  // Incluindo dados do paciente relacionado
+                                 .ToListAsync();
         }
 
         public Task<Appointment> GetByIdAsync(int id)
