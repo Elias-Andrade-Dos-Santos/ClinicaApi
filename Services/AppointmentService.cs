@@ -33,5 +33,25 @@ namespace ClinicaApi.Services
             appointment.IsActive = true;
             await _appointmentRepository.AddAsync(appointment);
         }
+
+        public async Task<IEnumerable<AppointmentDTO>> GetAppointmentsAsync(DateTime? startDate = null, DateTime? endDate = null, int? patientId = null, bool? isActive = null)
+        {
+            var appointments = await _appointmentRepository.GetAllAsync();
+
+            if (startDate.HasValue && endDate.HasValue)
+            {
+                appointments = appointments.Where(a => a.DateTime >= startDate.Value && a.DateTime <= endDate.Value);
+            }
+            if (patientId.HasValue)
+            {
+                appointments = appointments.Where(a => a.PatientId == patientId.Value);
+            }
+            if (isActive.HasValue)
+            {
+                appointments = appointments.Where(a => a.IsActive == isActive.Value);
+            }
+
+            return appointments.Select(a => _mapper.Map<AppointmentDTO>(a));
+        }
     }
 }
