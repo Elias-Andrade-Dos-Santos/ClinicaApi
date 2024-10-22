@@ -13,6 +13,12 @@ namespace ClinicaApi.Controllers
         {
             _appointmentService = appointmentService;
         }
+        [HttpGet]
+        public async Task<ActionResult<IEnumerable<AppointmentDTO>>> GetAppointments([FromQuery] DateTime? startDate = null, [FromQuery] DateTime? endDate = null, [FromQuery] int? patientId = null, [FromQuery] bool? isActive = null)
+        {
+            var appointments = await _appointmentService.GetAppointmentsAsync(startDate, endDate, patientId, isActive);
+            return Ok(appointments);
+        }
 
         [HttpPost]
         public async Task<ActionResult> AddAppointment([FromBody] AppointmentPostDTO appointmentDto)
