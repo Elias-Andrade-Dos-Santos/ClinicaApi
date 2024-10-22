@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using ClinicaApi.Data;
 using ClinicaApi.Models;
 using ClinicaApi.Repositories.Interfaces;
 
@@ -9,9 +10,17 @@ namespace ClinicaApi.Repositories
 {
     public class AppointmentRepository : IAppointmentRepository
     {
-        public Task AddAsync(Appointment appointment)
+        private readonly ClinicaContext _context;
+
+        public AppointmentRepository(ClinicaContext context)
         {
-            throw new NotImplementedException();
+           _context = context;
+        }
+
+        public async Task AddAsync(Appointment appointment)
+        {
+            await _context.Appointments.AddAsync(appointment);
+            await _context.SaveChangesAsync();
         }
 
         public Task DeleteAsync(int id)
