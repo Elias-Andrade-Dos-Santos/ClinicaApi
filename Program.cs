@@ -1,4 +1,6 @@
+using ClinicaApi.DTOs.AppointmentDTOs;
 using ClinicaApi.DTOs.PatientDTOs;
+using ClinicaApi.DTOs.validator.AppointmentValidatorDTO;
 using ClinicaApi.DTOs.validator.PatientValidatorDTO;
 using ClinicaApi.Repositories;
 using ClinicaApi.Repositories.Interfaces;
@@ -15,8 +17,6 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
-
-// Registrar dependências
 builder.Services.AddScoped<IPatientService, PatientService>();
 
 builder.Services.AddScoped<IPatientRepository, PatientRepository>();
@@ -24,6 +24,7 @@ builder.Services.AddScoped<IAddressRepository, AddressRepository>();
 
 builder.Services.AddScoped<IValidator<PatientPostDTO>, PatientPostDTOValidator>();
 builder.Services.AddScoped<IValidator<PatientUpdateDTO>, PatientUpdateDTOValidator>();
+builder.Services.AddScoped<IValidator<AppointmentPostDTO>, AppointmentPostDTOValidator>();
 
 builder.Services.AddDbContext<ClinicaApi.Data.ClinicaContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
