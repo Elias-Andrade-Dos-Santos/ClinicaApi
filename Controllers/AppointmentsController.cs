@@ -1,5 +1,6 @@
 using ClinicaApi.DTOs.AppointmentDTOs;
 using ClinicaApi.Services.Interfaces;
+using ClinicaAPI.Exceptions;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ClinicaApi.Controllers
@@ -33,6 +34,25 @@ namespace ClinicaApi.Controllers
                 
                var errors = ex.Errors.Select(e => new { Field = e.PropertyName, Error = e.ErrorMessage });
                 return BadRequest(new { Errors = errors });
+            }
+        }
+
+        [HttpPut("{id}")]
+        public async Task<ActionResult> UpdateAppointment(int id, [FromBody] AppointmentUpdateDTO appointmentUpdateDto)
+        {
+             try
+            {
+                await _appointmentService.UpdateAppointmentAsync(id, appointmentUpdateDto);
+                return NoContent();
+            }
+            catch (FluentValidation.ValidationException ex)
+            {
+               var errors = ex.Errors.Select(e => new { Field = e.PropertyName, Error = e.ErrorMessage });
+                return BadRequest(new { Errors = errors });
+            }
+            catch (NotFoundException ex)
+            {
+                return NotFound(ex.Message);
             }
         }
     }
