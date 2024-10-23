@@ -55,5 +55,21 @@ namespace ClinicaApi.Controllers
                 return NotFound(ex.Message);
             }
         }
+
+        [HttpDelete("{id}")]
+
+        public async Task<ActionResult> DeleteAppointment(int id)
+        {
+            try
+            {
+                await _appointmentService.DeleteAppointmentAsync(id);
+                return NoContent();
+            }
+            catch (NotFoundException ex)
+            {
+                return NotFound(ex.Message);
+            }
+        }
+
     }
 }
