@@ -66,6 +66,14 @@ namespace ClinicaApi.Services
             return appointments.Select(a => _mapper.Map<AppointmentDTO>(a));
         }
 
+        public async Task InactivateAppointmentAsync(int id)
+        {
+            var appointment = await _appointmentRepository.GetByIdAsync(id);
+            if (appointment == null)
+                throw new NotFoundException("Atendimento não encontrado");
+            appointment.IsActive = false; 
+            await _appointmentRepository.UpdateAsync(appointment);
+        }
 
         public async Task UpdateAppointmentAsync(int id, AppointmentUpdateDTO appointmentUpdateDto)
         {
