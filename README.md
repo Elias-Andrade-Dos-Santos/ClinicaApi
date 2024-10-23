@@ -81,6 +81,7 @@ cd ClinicaAPI
 <p>Execute o seguinte comando para garantir que todas as tabelas e relacionamentos sejam criados no banco de dados:</p>
 
 <pre><code>
+dotnet ef migrations add init
 dotnet ef database update
 </code></pre>
 
