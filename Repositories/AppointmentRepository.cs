@@ -36,14 +36,18 @@ namespace ClinicaApi.Repositories
                                  .ToListAsync();
         }
 
-        public Task<Appointment> GetByIdAsync(int id)
+        public async Task<Appointment> GetByIdAsync(int id)
         {
-            throw new NotImplementedException();
+            var res = await _context.Appointments
+                                 .Include(a => a.Patient)
+                                 .FirstOrDefaultAsync(a => a.Id == id);
+            return res!;
         }
 
-        public Task UpdateAsync(Appointment appointment)
+        public async Task UpdateAsync(Appointment appointment)
         {
-            throw new NotImplementedException();
+            _context.Appointments.Update(appointment);
+            await _context.SaveChangesAsync();
         }
     }
 }
