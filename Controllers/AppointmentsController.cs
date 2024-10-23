@@ -71,5 +71,18 @@ namespace ClinicaApi.Controllers
             }
         }
 
+        [HttpPatch("{id}/inactivate")]
+        public async Task<ActionResult> InactivateAppointment(int id)
+        {
+            try
+            {
+                await _appointmentService.InactivateAppointmentAsync(id);
+                return NoContent();
+            }
+            catch (NotFoundException ex)
+            {
+                return NotFound(ex.Message);
+            }
+        }
     }
 }
