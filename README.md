@@ -29,7 +29,7 @@ A aplicação segue o padrão <strong>SOLID</strong> e <strong>MVC</strong> para
 <h2>🛠️ Tecnologias Utilizadas</h2>
 
 <ul>
-  <li><strong>ASP.NET Core 6</strong></li>
+  <li><strong>ASP.NET Core 8</strong></li>
   <li><strong>Entity Framework Core</strong></li>
   <li><strong>AutoMapper</strong></li>
   <li><strong>FluentValidation</strong></li>
@@ -41,7 +41,7 @@ A aplicação segue o padrão <strong>SOLID</strong> e <strong>MVC</strong> para
 <h2>📋 Requisitos</h2>
 
 <ul>
-  <li>.NET 6 SDK</li>
+  <li>.NET 8 SDK</li>
   <li>Visual Studio ou Visual Studio Code</li>
   <li>SQL Server ou MySQL para o banco de dados</li>
   <li>Node.js (para rodar o front-end com Vite.js)</li>
