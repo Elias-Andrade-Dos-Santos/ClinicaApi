@@ -35,7 +35,6 @@ A aplicação segue o padrão <strong>SOLID</strong> e <strong>MVC</strong> para
   <li><strong>FluentValidation</strong></li>
   <li><strong>Swagger</strong> para documentação da API</li>
   <li><strong>MySQL</strong> ou <strong>SQL Server</strong> para o banco de dados</li>
-  <li><strong>React com Vite.js, Context API, TypeScript, Sass</strong> para o front-end</li>
 </ul>
 
 <h2>📋 Requisitos</h2>
