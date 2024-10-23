@@ -52,7 +52,7 @@ A aplicação segue o padrão <strong>SOLID</strong> e <strong>MVC</strong> para
 <h3>1. Clonando o Repositório</h3>
 
 <pre><code>
-git clone https://github.com/seu-usuario/ClinicaAPI.git
+git clone https://github.com/Elias-Andrade-Dos-Santos/ClinicaApi.git
 cd ClinicaAPI
 </code></pre>
 
@@ -97,7 +97,7 @@ dotnet run
 <p>Abra o navegador e acesse a seguinte URL para visualizar a documentação da API no Swagger:</p>
 
 <pre><code>
-http://localhost:5000/swagger
+http://localhost:5143/swagger/index.html
 </code></pre>
 
 <h2>🧑‍💻 Design Patterns Utilizados</h2>
