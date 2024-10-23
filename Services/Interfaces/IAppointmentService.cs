@@ -12,5 +12,6 @@ namespace ClinicaApi.Services.Interfaces
         Task<IEnumerable<AppointmentDTO>> GetAppointmentsAsync(DateTime? startDate = null, DateTime? endDate = null, int? patientId = null, bool? isActive = null);
         Task UpdateAppointmentAsync(int id, AppointmentUpdateDTO appointmentUpdateDto);
         Task DeleteAppointmentAsync(int id);
+        Task InactivateAppointmentAsync(int id);
     }
 }
