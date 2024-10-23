@@ -43,7 +43,6 @@ A aplicação segue o padrão <strong>SOLID</strong> e <strong>MVC</strong> para
   <li>.NET 8 SDK</li>
   <li>Visual Studio ou Visual Studio Code</li>
   <li>SQL Server ou MySQL para o banco de dados</li>
-  <li>Node.js (para rodar o front-end com Vite.js)</li>
 </ul>
 
 <h2>🚀 Como Configurar o Projeto</h2>
