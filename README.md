@@ -100,28 +100,6 @@ dotnet run
 http://localhost:5000/swagger
 </code></pre>
 
-<h3>6. Configurando e Rodando o Front-end</h3>
-
-<h4>1. Vá para o diretório do front-end:</h4>
-
-<pre><code>
-cd ClinicaAPI-frontend
-</code></pre>
-
-<h4>2. Instale as dependências:</h4>
-
-<pre><code>
-npm install
-</code></pre>
-
-<h4>3. Execute o projeto front-end:</h4>
-
-<pre><code>
-npm run dev
-</code></pre>
-
-<p>O front-end estará acessível em <a href="http://localhost:3000">http://localhost:3000</a>.</p>
-
 <h2>🧑‍💻 Design Patterns Utilizados</h2>
 
 <h3>1. Repository Pattern</h3>
@@ -199,26 +177,3 @@ public class MappingProfile : Profile
 }
 </code></pre>
 
-<h2>🧪 Testes</h2>
-
-<p>Para rodar os testes unitários, execute:</p>
-
-<pre><code>
-dotnet test
-</code></pre>
-
-<p>Os testes são realizados principalmente na camada de <strong>Service</strong>, garantindo que as regras de negócio estejam corretas.</p>
-
-<h2>📜 Licença</h2>
-
-<p>Este projeto está licenciado sob a licença MIT. Consulte o arquivo <strong>LICENSE</strong> para mais detalhes.</p>
-
----
-
-<h3>💡 Dicas</h3>
-
-<ul>
-  <li>Configure as variáveis de ambiente corretamente para ambientes de produção e desenvolvimento.</li>
-  <li>Utilize o Swagger para testar facilmente os endpoints da API.</li>
-  <li>Utilize o <strong>Hot Reload</strong> do .NET Core durante o desenvolvimento para atualizações automáticas.</li>
-</ul>
