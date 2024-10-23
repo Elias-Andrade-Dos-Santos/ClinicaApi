@@ -37,6 +37,15 @@ namespace ClinicaApi.Services
             await _appointmentRepository.AddAsync(appointment);
         }
 
+        public async Task DeleteAppointmentAsync(int id)
+        {
+            var appointment = await _appointmentRepository.GetByIdAsync(id);
+            if (appointment == null)
+                throw new NotFoundException("Atendimento não encontrado");
+            await _appointmentRepository.DeleteAsync(id);
+
+        }
+
         public async Task<IEnumerable<AppointmentDTO>> GetAppointmentsAsync(DateTime? startDate = null, DateTime? endDate = null, int? patientId = null, bool? isActive = null)
         {
             var appointments = await _appointmentRepository.GetAllAsync();
@@ -56,6 +65,7 @@ namespace ClinicaApi.Services
 
             return appointments.Select(a => _mapper.Map<AppointmentDTO>(a));
         }
+
 
         public async Task UpdateAppointmentAsync(int id, AppointmentUpdateDTO appointmentUpdateDto)
         {
