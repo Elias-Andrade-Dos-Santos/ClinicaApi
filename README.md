@@ -107,6 +107,7 @@ http://localhost:5143/swagger/index.html
 <p>O padrão <strong>Repository</strong> é utilizado para abstrair as interações com o banco de dados, centralizando o código de acesso a dados.</p>
 
 <pre><code>
+//código de exemplo
 public interface IPatientRepository {
     Task<Patient> GetByIdAsync(int id);
     Task AddAsync(Patient patient);
@@ -120,6 +121,7 @@ public interface IPatientRepository {
 <p>A injeção de dependência é usada para gerenciar dependências entre as classes. Repositórios, serviços e validadores são injetados via construtores, tornando o código mais flexível e testável.</p>
 
 <pre><code>
+//código de exemplo
 public class PatientService : IPatientService
 {
     private readonly IPatientRepository _patientRepository;
@@ -138,6 +140,7 @@ public class PatientService : IPatientService
 <p>Os <strong>DTOs</strong> transferem dados entre camadas da aplicação, garantindo que apenas as informações necessárias sejam expostas.</p>
 
 <pre><code>
+//código de exemplo
 public class PatientDTO
 {
     public int Id { get; set; }
@@ -152,6 +155,7 @@ public class PatientDTO
 <p>O <strong>FluentValidation</strong> é usado para validar as entradas do usuário antes do processamento.</p>
 
 <pre><code>
+//código de exemplo
 public class PatientValidator : AbstractValidator<PatientDTO>
 {
     public PatientValidator()
@@ -168,6 +172,7 @@ public class PatientValidator : AbstractValidator<PatientDTO>
 <p>O <strong>AutoMapper</strong> mapeia entidades para <strong>DTOs</strong> e vice-versa, facilitando a conversão entre camadas.</p>
 
 <pre><code>
+//código de exemplo
 public class MappingProfile : Profile
 {
     public MappingProfile()
