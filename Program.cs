@@ -12,19 +12,45 @@ using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+// Carregar as configurações de CORS do appsettings.json
+var corsDevelopmentOrigins = builder.Configuration.GetSection("Cors:DevelopmentOrigins").Get<string[]>();
+var corsProductionOrigins = builder.Configuration.GetSection("Cors:ProductionOrigins").Get<string[]>();
+
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("DevelopmentCorsPolicy", builder =>
+    {
+        builder.WithOrigins(corsDevelopmentOrigins)  // Carrega as origens permitidas para Dev
+               .AllowAnyMethod()
+               .AllowAnyHeader()
+               .AllowCredentials();
+    });
+
+    options.AddPolicy("ProductionCorsPolicy", builder =>
+    {
+        builder.WithOrigins(corsProductionOrigins)   // Carrega as origens permitidas para Produção
+               .WithMethods("GET", "POST")
+               .WithHeaders("Authorization", "Content-Type")
+               .AllowCredentials();
+    });
+});
+
+
+
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
-builder.Services.AddScoped<IPatientService, PatientService>();
 
+builder.Services.AddScoped<IPatientService, PatientService>();
 builder.Services.AddScoped<IPatientRepository, PatientRepository>();
 builder.Services.AddScoped<IAddressRepository, AddressRepository>();
+builder.Services.AddScoped<IAppointmentService, AppointmentService>();
+builder.Services.AddScoped<IAppointmentRepository, AppointmentRepository>();
 
 builder.Services.AddScoped<IValidator<PatientPostDTO>, PatientPostDTOValidator>();
 builder.Services.AddScoped<IValidator<PatientUpdateDTO>, PatientUpdateDTOValidator>();
 builder.Services.AddScoped<IValidator<AppointmentPostDTO>, AppointmentPostDTOValidator>();
+builder.Services.AddScoped<IValidator<AppointmentUpdateDTO>, AppointmentUpdateDTOValidator>();
 
 builder.Services.AddDbContext<ClinicaApi.Data.ClinicaContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
@@ -38,6 +64,15 @@ if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
     app.UseSwaggerUI();
+}
+
+if (app.Environment.IsDevelopment())
+{
+    app.UseCors("DevelopmentCorsPolicy");
+}
+else
+{
+    app.UseCors("ProductionCorsPolicy");
 }
 
 app.UseHttpsRedirection();
