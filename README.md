@@ -51,7 +51,7 @@ A aplicação segue o padrão <strong>SOLID</strong> e <strong>MVC</strong> para
 
 <pre><code>
 git clone https://github.com/Elias-Andrade-Dos-Santos/ClinicaApi.git
-cd ClinicaAPI
+cd ClinicaApi
 </code></pre>
 
 <h3>2. Configurando o Banco de Dados</h3>
