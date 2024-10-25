@@ -21,9 +21,14 @@ namespace ClinicaApi.Repositories
             await _context.SaveChangesAsync();
         }
 
-        public Task DeleteAsync(int id)
+        public async Task DeleteAsync(int id)
         {
-            throw new NotImplementedException();
+           var patient = await _context.Patients.FindAsync(id);
+            if (patient != null)
+            {
+                _context.Patients.Remove(patient);
+                await _context.SaveChangesAsync();
+            }
         }
 
         public async Task<bool> ExistsByCPFAsync(string cpf)
