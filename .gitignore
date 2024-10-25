@@ -29,7 +29,7 @@ Release/
 App_Data/
 
 # Arquivos de dados do Entity Framework
-Migrations/
+# Migrations/
 obj/Debug/
 obj/Release/
 
