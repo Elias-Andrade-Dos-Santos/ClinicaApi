@@ -22,6 +22,8 @@ namespace ClinicaApi.Mapping
 
             CreateMap<Appointment, AppointmentPostDTO>().ReverseMap();
 
+            CreateMap<Appointment, AppointmentDTO>().ReverseMap();
+
         }
     }
 }
