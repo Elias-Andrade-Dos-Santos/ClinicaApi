@@ -1,11 +1,4 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>README - Sistema de Gerenciamento de Pacientes e Atendimentos</title>
-</head>
-<body>
+
     <h1>📋 Sistema de Gerenciamento de Pacientes e Atendimentos - Frontend</h1>
 
     <p>
@@ -91,5 +84,4 @@ cd nome-do-repositorio</code></pre>
         <strong>Seu Nome</strong> - <a href="https://github.com/seuusuario">GitHub</a> | 
         <a href="https://linkedin.com/in/seulinkedin">LinkedIn</a>
     </p>
-</body>
-</html>
+
