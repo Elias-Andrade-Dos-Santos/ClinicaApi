@@ -16,8 +16,7 @@ Este é o frontend da aplicação de gerenciamento de pacientes e atendimentos, 
 
 ### 1. Clonar o Repositório
 ```bash
-git clone https://github.com/seuusuario/seurepositorio.git
-cd seurepositorio
+git clone https://github.com/Elias-Andrade-Dos-Santos/front-end-teste.git
 ```
 
 ### 2. Instalar Dependências
@@ -30,7 +29,7 @@ npm install
 npm run dev
 ```
 
-Acesse [http://localhost:3000](http://localhost:3000) para ver a aplicação.
+Acesse (http://localhost:5173/) para ver a aplicação.
 
 ## 🎨 Tecnologias Utilizadas
 
@@ -45,20 +44,3 @@ Acesse [http://localhost:3000](http://localhost:3000) para ver a aplicação.
 - **Custom Hooks**: Lógica de chamadas à API
 - **Yup Validation**: Validação de dados em formulários
 
-## 💡 Contribuição
-
-1. Faça um **fork** do projeto.
-2. Crie uma **branch** (`feature/minha-feature`).
-3. Commit suas mudanças (`git commit -m 'Add nova feature'`).
-4. Faça **push** e abra um Pull Request.
-
-## 📝 Licença
-
-Este projeto está sob a licença MIT. Consulte o arquivo [LICENSE](LICENSE) para mais detalhes.
-
-## 👤 Autor
-
-**Seu Nome** - [GitHub](https://github.com/seuusuario) | [LinkedIn](https://linkedin.com/in/seulinkedin)
-```
-
-Este modelo em Markdown oferece uma estrutura clara e atraente para o GitHub, com links clicáveis e destaque para as principais seções.
