@@ -1,93 +1,65 @@
-Aqui está um modelo de README para o seu projeto "ClínicaAPI - Sistema de Gerenciamento de Pacientes e Atendimentos" que pode ser colocado no GitHub:
+Aqui está o README em Markdown, pronto para ser colocado diretamente no GitHub:
 
 ```markdown
-# ClínicaAPI - Sistema de Gerenciamento de Pacientes e Atendimentos
+# 🌟 Sistema de Gerenciamento de Pacientes e Atendimentos - Frontend
 
-## Descrição
-O **ClínicaAPI** é uma aplicação web desenvolvida com React e ASP.NET Core, destinada a facilitar o gerenciamento de pacientes e atendimentos em clínicas. O sistema permite que os usuários cadastrem e gerenciem informações de pacientes, agendamentos e registros de atendimento, proporcionando uma interface amigável e eficiente para os profissionais de saúde.
+Este é o frontend da aplicação de gerenciamento de pacientes e atendimentos, desenvolvido com **React.js** e **TypeScript**. A interface é moderna e responsiva, facilitando a interação com os dados clínicos de forma prática e intuitiva.
 
-## Funcionalidades
-- **Gerenciamento de Pacientes**: Cadastrar, editar, inativar e listar pacientes.
-- **Agendamentos**: Criar, editar, inativar e listar agendamentos de atendimentos.
-- **Registro de Atendimentos**: Consultar, cadastrar e editar registros de atendimento.
-- **Filtros**: Filtrar pacientes e atendimentos por nome, CPF, status e período.
-- **Modal**: Interface limpa e intuitiva para cadastro e edição de pacientes e atendimentos.
+## 📋 Estrutura
 
-## Tecnologias Utilizadas
-- **Front-end**: React, TypeScript, SCSS
-- **Back-end**: ASP.NET Core
-- **Banco de Dados**: (inserir aqui a tecnologia de banco de dados utilizada, se aplicável)
+- **Components**: Componentes reutilizáveis para formulários, botões e modais.
+- **Pages**: Páginas principais para listar e gerenciar pacientes e atendimentos.
+- **Contexts**: Context API para compartilhamento de estado.
+- **Services**: Configuração das requisições HTTP com Axios.
+- **Styles**: Estilos modulares em SCSS.
 
-## Instalação
+## ⚙️ Configuração
 
-### Pré-requisitos
-- [Node.js](https://nodejs.org/) (versão 14 ou superior)
-- [npm](https://www.npmjs.com/) (geralmente instalado com o Node.js)
-- [ASP.NET Core SDK](https://dotnet.microsoft.com/download) (versão 6 ou superior)
-
-### Clonando o Repositório
-
-1. Abra seu terminal ou prompt de comando.
-2. Execute o seguinte comando para clonar o repositório:
-
-   ```bash
-   git clone https://github.com/seu_usuario/ClinicaAPI.git
-   ```
-
-3. Navegue até o diretório do projeto:
-
-   ```bash
-   cd ClinicaAPI
-   ```
-
-4. Instale as dependências do front-end:
-
-   ```bash
-   npm install
-   ```
-
-5. Inicie o servidor:
-
-   ```bash
-   npm start
-   ```
-
-## Contribuição
-Contribuições são bem-vindas! Para contribuir, siga estas etapas:
-
-1. Faça um fork do repositório.
-2. Crie uma nova branch para sua feature:
-
-   ```bash
-   git checkout -b minha-feature
-   ```
-
-3. Faça suas alterações e commit:
-
-   ```bash
-   git commit -m 'Adiciona nova funcionalidade'
-   ```
-
-4. Envie para o repositório remoto:
-
-   ```bash
-   git push origin minha-feature
-   ```
-
-5. Abra um pull request.
-
-## Licença
-Este projeto está licenciado sob a [MIT License](LICENSE).
-
-## Contato
-Para mais informações ou sugestões, entre em contato:
-
-- **Seu Nome** - [seu_email@example.com](mailto:seu_email@example.com)
-
+### 1. Clonar o Repositório
+```bash
+git clone https://github.com/seuusuario/seurepositorio.git
+cd seurepositorio
 ```
 
-### Instruções:
-- Substitua `https://github.com/seu_usuario/ClinicaAPI.git` pelo link correto do seu repositório no GitHub.
-- Adicione informações sobre o banco de dados, se necessário.
-- Preencha com seu nome e e-mail na seção de contato.
-- Sinta-se à vontade para personalizar ainda mais de acordo com suas necessidades!
+### 2. Instalar Dependências
+```bash
+npm install
+```
+
+### 3. Executar Localmente
+```bash
+npm run dev
+```
+
+Acesse [http://localhost:3000](http://localhost:3000) para ver a aplicação.
+
+## 🎨 Tecnologias Utilizadas
+
+- **React.js** e **TypeScript** - Interface e tipagem
+- **SCSS** - Estilos modulados
+- **Axios** - Requisições HTTP
+- **Yup e React Hook Form** - Validações
+
+## 💼 Design Patterns
+
+- **Context API**: Gerenciamento de estado global eficiente
+- **Custom Hooks**: Lógica de chamadas à API
+- **Yup Validation**: Validação de dados em formulários
+
+## 💡 Contribuição
+
+1. Faça um **fork** do projeto.
+2. Crie uma **branch** (`feature/minha-feature`).
+3. Commit suas mudanças (`git commit -m 'Add nova feature'`).
+4. Faça **push** e abra um Pull Request.
+
+## 📝 Licença
+
+Este projeto está sob a licença MIT. Consulte o arquivo [LICENSE](LICENSE) para mais detalhes.
+
+## 👤 Autor
+
+**Seu Nome** - [GitHub](https://github.com/seuusuario) | [LinkedIn](https://linkedin.com/in/seulinkedin)
+```
+
+Este modelo em Markdown oferece uma estrutura clara e atraente para o GitHub, com links clicáveis e destaque para as principais seções.
