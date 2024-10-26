@@ -1,4 +1,3 @@
-Aqui está o README em Markdown, pronto para ser colocado diretamente no GitHub:
 
 ```markdown
 # 🌟 Sistema de Gerenciamento de Pacientes e Atendimentos - Frontend
