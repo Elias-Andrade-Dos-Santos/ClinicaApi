@@ -24,9 +24,14 @@ namespace ClinicaApi.Repositories
             await _context.SaveChangesAsync();
         }
 
-        public Task DeleteAsync(int id)
+        public async Task DeleteAsync(int id)
         {
-            throw new NotImplementedException();
+            var appointment = await GetByIdAsync(id);
+            if (appointment != null)
+            {
+                _context.Appointments.Remove(appointment);
+                await _context.SaveChangesAsync();
+            }
         }
 
         public async Task<IEnumerable<Appointment>> GetAllAsync()
