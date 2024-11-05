@@ -53,8 +53,8 @@ Além disso, você também pode incluir os seguintes diretórios e arquivos espe
 wwwroot/
 
 # Arquivos de configuração do (link unavailable) Core
-appsettings.json
-appsettings.Development.json
+# appsettings.json
+# appsettings.Development.json
 appsettings.Production.json
 
 # Arquivos de segurança
